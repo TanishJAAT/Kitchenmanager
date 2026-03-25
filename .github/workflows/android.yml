@@ -28,7 +28,7 @@ jobs:
       run: chmod +x KitchenStock/gradlew
 
     - name: Build APK
-      run: cd KitchenStock && ./gradlew assembleDebug --stacktrace
+      run: cd KitchenStock/KitchenStock && ./gradlew assembleDebug --stacktrace
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
