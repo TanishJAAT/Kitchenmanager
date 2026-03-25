@@ -25,7 +25,7 @@ jobs:
       uses: gradle/actions/setup-gradle@v3
 
     - name: Give permission
-      run: chmod +x KitchenStock/gradlew
+      run: chmod +x KitchenStock/KitchenStock/gradlew
 
     - name: Build APK
       run: cd KitchenStock/KitchenStock && ./gradlew assembleDebug --stacktrace
@@ -34,4 +34,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: apk
-        path: KitchenStock/app/build/outputs/apk/debug/app-debug.apk
+        path: KitchenStock/KitchenStock/app/build/outputs/apk/debug/app-debug.apk
