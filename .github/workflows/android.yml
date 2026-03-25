@@ -9,22 +9,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout
+      uses: actions/checkout@v4
 
     - name: Unzip project
       run: unzip KitchenStock.zip
 
     - name: Setup Java
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v4
       with:
         distribution: 'temurin'
         java-version: '17'
+
+    - name: Setup Gradle
+      uses: gradle/actions/setup-gradle@v3
 
     - name: Give permission
       run: chmod +x KitchenStock/gradlew
 
     - name: Build APK
-      run: cd KitchenStock && ./gradlew assembleDebug
+      run: cd KitchenStock && ./gradlew assembleDebug --stacktrace
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
